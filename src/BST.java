@@ -1,31 +1,4 @@
-/******************************************************************************
- *  Compilation:  javac BST.java
- *  Execution:    java BST
- *  Dependencies: StdIn.java StdOut.java Queue.java
- *  Data files:   http://algs4.cs.princeton.edu/32bst/tinyST.txt  
- *
- *  A symbol table implemented with a binary search tree.
- * 
- *  % more tinyST.txt
- *  S E A R C H E X A M P L E
- *  
- *  % java BST < tinyST.txt
- *  A 8
- *  C 4
- *  E 12
- *  H 5
- *  L 11
- *  M 9
- *  P 10
- *  R 3
- *  S 0
- *  X 7
- *
- ******************************************************************************/
-
 import java.util.NoSuchElementException;
-import edu.princeton.cs.algs4.*;
-import edu.princeton.cs.algs4.Queue;
 
 /**
  *  The {@code BST} class represents an ordered symbol table of generic
@@ -397,7 +370,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     public Iterable<Key> keys(Key lo, Key hi) {
         if (lo == null) throw new IllegalArgumentException("first argument to keys() is null");
         if (hi == null) throw new IllegalArgumentException("second argument to keys() is null");
-        
+
         Queue<Key> queue = new Queue<Key>();
         keys(root, queue, lo, hi);
         return queue;
@@ -506,6 +479,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         return true;
     }
 
+
     /**
      * Unit tests the {@code BST} data type.
      *
@@ -527,3 +501,7 @@ public class BST<Key extends Comparable<Key>, Value> {
             StdOut.println(s + " " + st.get(s));
     }
 }
+
+
+Copyright © 2000–2016, Robert Sedgewick and Kevin Wayne.
+Last updated: Fri Mar 10 21:01:06 EST 2017.
