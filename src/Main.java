@@ -3,24 +3,34 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.FileSystems;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
-	private final Visual visual;
 	private int algoritme;
 	private Algorithm algo;
 	private ArrayList<Cirkel> cirkels = new ArrayList<Cirkel>();
 	private ArrayList<Punt> snijpunten;
+	private boolean error = false;
+	private long ExecutionTime;
 	
 	public static void main(String[] args){
 		new Main();
 	}
 	
 	public Main(){
-		this.visual = new Visual(this);
-		visual.setVisible(true);
+		long starttime = System.currentTimeMillis();
+		File file = new File("C:\\Users\\willem\\Documents\\tmi\\MeetSghlKunde\\Input.txt");
+		setCirkels(this.readInput(file));
+		setAlg(1);
+		run();
+		System.out.println(getSnijpunten());
+		ExecutionTime = System.currentTimeMillis() - starttime;
+		writeOutput();
 	}
 	
 	public void setAlg(int algorithm1){
@@ -46,11 +56,17 @@ public class Main {
 	public void run(){
 		switch (getAlg()){
 		case 1:
-			setAlgorithm(new Algorithm1(getCirkels(), this));
+			Algorithm alg1 = new Algorithm1(getCirkels(), this);
+			setAlgorithm(alg1);
+			break;
 		case 2:
-			setAlgorithm(new Algorithm2(getCirkels(), this));
+			Algorithm alg2 = new Algorithm2(getCirkels(), this);
+			setAlgorithm(alg2);
+			break;
 		case 3:
-			setAlgorithm(new Algorithm3(getCirkels(), this));
+			Algorithm alg3 = new Algorithm3(getCirkels(), this);
+			setAlgorithm(alg3);
+			break;
 		}
 	}
 	
@@ -58,8 +74,8 @@ public class Main {
 		this.algo = algorithm1;
 	}
 	
-	public int getAlgoritme(){
-		return this.algoritme;
+	public Algorithm getAlgoritme(){
+		return this.algo;
 	}
 	
 	public void addSnijpunten(Punt snijpunten){
@@ -80,12 +96,12 @@ public class Main {
 		try {
 			scan = new Scanner(file);
 			setAlg(Integer.parseInt(scan.nextLine()));
+			//TODO kan veel makelijkere
 			int amountOfCirkels = Integer.parseInt(scan.nextLine());
 			for(int i = 0; i < amountOfCirkels; i++){
 				Cirkel cirkel = castToCirkel(scan.nextLine());
 				cirkels.add(cirkel);
-				return(cirkels);
-			}
+			}return(cirkels);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -99,4 +115,23 @@ public class Main {
 		return castedCirkel;
 	}
 	
+	public void writeOutput(){
+		//TODO functie schrijven die ouput in een text bestand zet
+		try{
+		    PrintWriter writer = new PrintWriter("the-file-name.txt", "UTF-8");
+		    if(error = true)
+		    	writer.println("Dit algoritme is niet geimplementeerd");
+		    else{
+		    writer.println(this.snijpunten.size());
+		    for(int i = 0; i < this.snijpunten.size(); i=1){
+		    	writer.println(this.snijpunten.get(i).getX() + "" + this.snijpunten.get(i).getY());
+		    }
+		    writer.println("");
+		    writer.println(ExecutionTime);
+		    writer.close();
+		    }
+		} catch (IOException e) {
+		   //TODO exception als er iets fout gaat
+		}
+	}
 }
