@@ -7,6 +7,7 @@ public class Visual extends JFrame{
 	public Visual(Main main){
 		this.main = main;
 		setTitle("cirkels");
-		
+		setSize(400,400);
+		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 	}
 }
