@@ -25,7 +25,6 @@ public class Cirkel {
 		public Punt[] snijpuntAndereCirkel(Cirkel cirkel){
 			//afstand middelpunten
 			double d = distancepoints(getMiddelpunt(), cirkel.getMiddelpunt());
-			
 			if(d > getStraal() + cirkel.getStraal()){
 				return new Punt[0];
 			}

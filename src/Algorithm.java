@@ -23,8 +23,6 @@ public abstract class Algorithm {
 		}if(snijpunten.length == 2){
 			getMain().addSnijpunten(snijpunten[0]);
 			getMain().addSnijpunten(snijpunten[1]);
-		}else{
-			getMain().addSnijpunten(snijpunten[0]);
 		}
 	}
 	

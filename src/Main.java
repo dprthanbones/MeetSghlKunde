@@ -14,7 +14,7 @@ public class Main {
 	private int algoritme;
 	private Algorithm algo;
 	private ArrayList<Cirkel> cirkels = new ArrayList<Cirkel>();
-	private ArrayList<Punt> snijpunten;
+	private ArrayList<Punt> snijpunten = new ArrayList<Punt>();
 	private boolean error = false;
 	private long ExecutionTime;
 	
@@ -28,8 +28,14 @@ public class Main {
 		setCirkels(this.readInput(file));
 		setAlg(1);
 		run();
-		System.out.println(getSnijpunten());
+		for(int i = 0; i < getSnijpunten().size(); i++){
+			System.out.println("snijpunt: " + i);
+			System.out.println("puntX: " + getSnijpunten().get(i).getX());
+			System.out.println("puntY: " + getSnijpunten().get(i).getY());
+			System.out.println("------------------------");
+		}
 		ExecutionTime = System.currentTimeMillis() - starttime;
+		System.out.println("time: " + ExecutionTime + "Ms");
 		writeOutput();
 	}
 	
@@ -78,7 +84,7 @@ public class Main {
 		return this.algo;
 	}
 	
-	public void addSnijpunten(Punt snijpunten){
+	public void addSnijpunten(Punt snijpunten){	
 		getSnijpunten().add(snijpunten);
 	}
 	
