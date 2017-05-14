@@ -5,7 +5,7 @@ public abstract class Algorithm {
 	private long time;
 
 	public Algorithm(Main main){
-		setMain(main);	
+		setMain(main);
 	}
 	
 	public void setMain(Main main){
