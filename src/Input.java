@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class Input {
 
 	private int algoritme;
 	private Algorithm algo;
@@ -19,10 +19,10 @@ public class Main {
 	private long ExecutionTime;
 	
 	public static void main(String[] args){
-		new Main();
+		new Input();
 	}
 	
-	public Main(){
+	public Input(){
 		long starttime = System.currentTimeMillis();
 		File file = new File("C:\\Users\\willem\\Documents\\tmi\\MeetSghlKunde\\Input.txt");
 		setCirkels(this.readInput(file));

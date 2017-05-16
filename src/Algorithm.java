@@ -1,18 +1,18 @@
 
 public abstract class Algorithm {
 
-	private Main Main;
+	private Input Main;
 	private long time;
 
-	public Algorithm(Main main){
+	public Algorithm(Input main){
 		setMain(main);
 	}
 	
-	public void setMain(Main main){
+	public void setMain(Input main){
 		this.Main = main;
 	}
 	
-	public Main getMain(){
+	public Input getMain(){
 		return this.Main;
 	}
 	

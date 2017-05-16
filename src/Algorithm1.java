@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Algorithm1 extends Algorithm{
 
-	public Algorithm1(ArrayList<Cirkel> cirkels, Main main){
+	public Algorithm1(ArrayList<Cirkel> cirkels, Input main){
 		super(main);
 		search(cirkels);
 	}
