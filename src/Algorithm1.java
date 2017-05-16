@@ -8,9 +8,10 @@ public class Algorithm1 extends Algorithm{
 	}
 
 	private void search(ArrayList<Cirkel> cirkels) {
+		System.out.println(cirkels.size());
 		long startTime = System.nanoTime();
 		for (int i = 0; i < cirkels.size(); i++ ){
-			for(int j = i + 1; j < cirkels.size() - 1; j++){
+			for(int j = i + 1; j < cirkels.size() ; j++){
 				addSnijnpunt(cirkels.get(i),cirkels.get(j));
 			}
 		}	

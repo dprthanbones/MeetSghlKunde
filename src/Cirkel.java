@@ -34,8 +34,8 @@ public class Cirkel {
 			double x_2 = cirkel.getMiddelpunt().getX();
 			double y_2 = cirkel.getMiddelpunt().getY();
 			
-			double d_1 = (Math.pow(getStraal(), 2) - Math.pow(cirkel.getStraal(), 2) - Math.pow(d, 2))/2*d;
-			double h = Math.sqrt(Math.pow(cirkel.getStraal(), 2) - Math.pow(d_1, 2));
+			double d_1 = (Math.pow(d, 2) + Math.pow(getStraal(), 2) - Math.pow(cirkel.getStraal(), 2))/(2*d);
+			double h = Math.sqrt(Math.abs(Math.pow(cirkel.getStraal(), 2) - Math.pow(d_1, 2)));
 			double X_3 = x_1 + (d_1*(x_2 - x_1))/d;
 			double Y_3 = y_1 + (d_1*(y_2 - y_1))/d;
 			if(d != getStraal() + cirkel.getStraal()){

@@ -28,6 +28,7 @@ public class Main {
 		setCirkels(this.readInput(file));
 		setAlg(1);
 		run();
+		System.out.println(getSnijpunten().size());
 		for(int i = 0; i < getSnijpunten().size(); i++){
 			System.out.println("snijpunt: " + i);
 			System.out.println("puntX: " + getSnijpunten().get(i).getX());
